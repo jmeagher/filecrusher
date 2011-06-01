@@ -7,17 +7,22 @@
 	<packaging>jar</packaging>
 	<name>filecrush</name>
         <description>filecrush utility</description>
-        <properties>
-                <hadoop-core.version>0.20.1+152</hadoop-core.version>
-                <commons-cli.version>2.0</commons-cli.version>
+
+	<properties>
+                <hadoop.version>0.20.2</hadoop.version>
+                <commons-cli.version>1.2</commons-cli.version>
                 <commons-logging.version>1.0.4</commons-logging.version>
                 <commons-lang.version>2.3</commons-lang.version>
                 <commons-httpclient.version>3.0.1</commons-httpclient.version>
                 <log4j.version>1.2.13</log4j.version>
+                <slf4j.version>1.6.1</slf4j.version>
                 <plexus-utils.version>1.1</plexus-utils.version>
-                <junit.version>4.4</junit.version>
-                <easymock.version>2.0</easymock.version>
-        </properties>
+                <junit.version>4.8.2</junit.version>
+                <mockito.version>1.8.5</mockito.version>
+                <hamcrest.version>1.2</hamcrest.version>
+                <easymock.version>3.0</easymock.version>
+                <jetty.version>6.1.14</jetty.version>
+	</properties>
 
 	<build>
 
@@ -75,10 +80,11 @@
 
 
 	<dependencies>
-		<dependency>
-			<groupId>hadoop-core</groupId>
+
+	<dependency>
+			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-core</artifactId>
-			<version>${hadoop-core.version}</version>
+			<version>${hadoop.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -118,7 +124,25 @@
 		</dependency>
 		<!--  test dependencies -->
 		<dependency>
-			<groupId>easymock</groupId>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>${hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<version>${hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
 			<version>${easymock.version}</version>
 			<scope>test</scope>
@@ -129,5 +153,41 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-test</artifactId>
+			<version>${hadoop.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Needed to run Hadoop cluster test cases -->
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty</artifactId>
+			<version>${jetty.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Needed to run Hadoop cluster test cases -->
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty-util</artifactId>
+			<version>${jetty.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
+
 	</dependencies>
 </project>
