@@ -1,0 +1,5 @@
+package crush;
+
+public enum MapperCounter {
+	DIRS_FOUND, DIRS_SKIPPED, DIRS_ELIGIBLE, FILES_FOUND, FILES_SKIPPED, FILES_ELIGIBLE
+}
