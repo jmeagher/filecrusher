@@ -114,7 +114,7 @@ public class Clean extends Configured implements Tool{
         	System.err.println("You must specify a target.dir");
         	return 1;
         }
-        if (conf.get(TARGET_DIR)=="/"){
+        if ("/".equals(conf.get(TARGET_DIR))){
         	System.err.println("Will not clean / !!!!!!");
         	return 2;
         }
