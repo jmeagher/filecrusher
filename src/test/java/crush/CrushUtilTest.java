@@ -135,7 +135,7 @@ public class CrushUtilTest {
         SequenceFile.Writer writer =  SequenceFile.createWriter
                 (fs, jobConf, aFile, Text.class, Text.class ,
                         SequenceFile.CompressionType.BLOCK,
-                new org.apache.hadoop.io.compress.GzipCodec());
+                new org.apache.hadoop.io.compress.DefaultCodec());
         writer.append(new Text("1"), new Text("1"));
         writer.append(new Text("2"), new Text("2"));
         writer.close();
@@ -144,7 +144,7 @@ public class CrushUtilTest {
         SequenceFile.Writer writerb =  SequenceFile.createWriter
                 (fs, jobConf, bFile, Text.class, Text.class ,
                         SequenceFile.CompressionType.BLOCK,
-                new org.apache.hadoop.io.compress.GzipCodec());
+                new org.apache.hadoop.io.compress.DefaultCodec());
         writerb.append(new Text("3"), new Text("4"));
         writerb.append(new Text("5"), new Text("6"));
         writerb.close();
